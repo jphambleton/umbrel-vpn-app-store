@@ -1,0 +1,73 @@
+manifestVersion: 1
+id: vpn-transmission
+category: networking
+name: VPN Transmission
+version: "4.1.3-gluetun3.41.3"
+tagline: Transmission BitTorrent client routed through AirVPN with a kill switch
+description: >-
+  Transmission with all of its traffic forced through an AirVPN WireGuard tunnel via Gluetun.
+  Gluetun's built-in firewall acts as a kill switch: if the VPN drops, no torrent traffic
+  leaks to your ISP — Transmission simply stalls until the tunnel is back.
+
+
+  Setup: reserve a forwarded port at airvpn.org/ports and put it in docker-compose.yml, then
+  drop your WireGuard private key, preshared key and IPv4 address into three files under
+  the app's secrets/ folder (Files → Apps → VPN Transmission → secrets). See the store README.
+
+
+  Uses the same Downloads folder as the official Transmission app, so Radarr/Sonarr paths
+  keep working — just repoint them to host vpn-transmission_gluetun_1, port 9091.
+developer: Transmission + Gluetun
+website: https://transmissionbt.com/
+dependencies: []
+repo: https://github.com/transmission/transmission
+support: https://github.com/qdm12/gluetun-wiki
+port: 9091
+gallery:
+  - https://getumbrel.github.io/umbrel-apps-gallery/transmission/1.jpg
+  - https://getumbrel.github.io/umbrel-apps-gallery/transmission/2.jpg
+  - https://getumbrel.github.io/umbrel-apps-gallery/transmission/3.jpg
+icon: https://getumbrel.github.io/umbrel-apps-gallery/transmission/icon.svg
+path: "/transmission/web/"
+defaultUsername: ""
+defaultPassword: ""
+torOnly: false
+permissions:
+  - STORAGE_DOWNLOADS
+releaseNotes: >-
+  Initial release: Transmission 4.1.3 behind Gluetun 3.41.3 (AirVPN WireGuard).
+widgets:
+  - id: "status"
+    type: "four-stats"
+    refresh: "5s"
+    endpoint: "widget-server:80/widgets/status"
+    link: ""
+    example:
+      type: "four-stats"
+      link: ""
+      items:
+        - title: "Downloading"
+          text: "3"
+          subtext: "torrents"
+        - title: "Seeding"
+          text: "1"
+          subtext: "torrents"
+        - title: "Stopped"
+          text: "0"
+          subtext: "torrents"
+        - title: "Queued"
+          text: "2"
+          subtext: "torrents"
+  - id: "torrent-list"
+    type: "list"
+    refresh: "2s"
+    endpoint: "widget-server:80/widgets/torrent-list"
+    link: ""
+    example:
+      type: "list"
+      link: ""
+      items:
+        - text: "33% • Ubuntu 22.04.3 amd64 ISO image"
+          subtext: "↓4.4Mbps ↑1.2Mbps"
+submitter: ""
+submission: ""

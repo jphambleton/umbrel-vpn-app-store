@@ -1,0 +1,3 @@
+# never commit VPN keys
+**/secrets/
+*.conf
