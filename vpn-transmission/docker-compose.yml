@@ -30,10 +30,9 @@ services:
       - FIREWALL_VPN_INPUT_PORTS=4123        # <-- AirVPN forwarded port
       # Let the Umbrel network (app proxy, Radarr, widget) reach Transmission's web UI
       - FIREWALL_OUTBOUND_SUBNETS=10.21.0.0/16
-      - DOT=on
+      - DNS_SERVER=on
       - BLOCK_MALICIOUS=off
       - UPDATER_PERIOD=24h
-      - HEALTH_VPN_DURATION_INITIAL=30s
     restart: on-failure
 
   transmission:

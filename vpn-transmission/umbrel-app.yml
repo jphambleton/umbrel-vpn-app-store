@@ -1,8 +1,10 @@
-manifestVersion: 1
+manifestVersion: 1.1
 id: vpn-transmission
+implements:
+  - transmission
 category: networking
 name: VPN Transmission
-version: "4.1.3-gluetun3.41.3"
+version: "4.1.3-gluetun3.41.3-r2"
 tagline: Transmission BitTorrent client routed through AirVPN with a kill switch
 description: >-
   Transmission with all of its traffic forced through an AirVPN WireGuard tunnel via Gluetun.
@@ -35,7 +37,9 @@ torOnly: false
 permissions:
   - STORAGE_DOWNLOADS
 releaseNotes: >-
-  Initial release: Transmission 4.1.3 behind Gluetun 3.41.3 (AirVPN WireGuard).
+  Declare `implements: transmission` so Radarr/Sonarr/etc. can select this app as their
+  Transmission dependency, allowing the original Transmission app to be uninstalled.
+  Also drop obsolete Gluetun env vars (DOT → DNS_SERVER, HEALTH_VPN_DURATION_INITIAL).
 widgets:
   - id: "status"
     type: "four-stats"

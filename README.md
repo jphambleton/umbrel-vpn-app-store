@@ -27,6 +27,9 @@ The VPN keys are **not** stored in this repo. They live in files inside the app'
 
 ## Point Radarr / Sonarr / etc. at it
 
+This app declares `implements: transmission`, so on Radarr's app page in umbrelOS you can select
+**VPN Transmission** as its Transmission dependency. After that the official Transmission app can be uninstalled.
+
 Download client host: `vpn-transmission_gluetun_1`, port `9091`. Paths stay `/downloads` — same host folder as the official Transmission app.
 
 ## Change country
