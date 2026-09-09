@@ -18,7 +18,7 @@ The VPN keys are **not** stored in this repo. They live in files inside the app'
 2. Reserve a forwarded port at https://airvpn.org/ports/ and write it into `vpn-transmission/docker-compose.yml`
    in both places marked `# <-- AirVPN forwarded port` (seeding works badly without it).
 3. Install the app from the store. It will fail to connect (no keys yet) — that's expected.
-4. umbrelOS → Files → Apps → VPN Transmission → `secrets/` and create three plain-text files (no trailing newline needed, Gluetun trims):
+4. umbrelOS → Files → Apps → VPN Transmission → `secrets/` (already exists, has a README) and create three plain-text files (no trailing newline needed, Gluetun trims):
    - `wireguard_private_key`  — value of `PrivateKey` from the .conf
    - `wireguard_preshared_key` — value of `PresharedKey` from the .conf
    - `wireguard_addresses`     — the **IPv4 only** part of `Address`, e.g. `10.170.23.45/32` (drop the IPv6 one; Umbrel Docker has no IPv6)
