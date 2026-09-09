@@ -27,7 +27,7 @@ services:
       # Pick servers by country (comma-separated). Alternatives: SERVER_CITIES, SERVER_NAMES.
       - SERVER_COUNTRIES=Netherlands,Switzerland
       # AirVPN forwarded port reserved at https://airvpn.org/ports/ (must match PEERPORT below)
-      - FIREWALL_VPN_INPUT_PORTS=12345        # <-- AirVPN forwarded port
+      - FIREWALL_VPN_INPUT_PORTS=4123        # <-- AirVPN forwarded port
       # Let the Umbrel network (app proxy, Radarr, widget) reach Transmission's web UI
       - FIREWALL_OUTBOUND_SUBNETS=10.21.0.0/16
       - DOT=on
@@ -46,7 +46,7 @@ services:
       - PGID=1000
       - TZ=UTC
       # Listening port for peers — same as FIREWALL_VPN_INPUT_PORTS above
-      - PEERPORT=12345                        # <-- AirVPN forwarded port
+      - PEERPORT=4123                        # <-- AirVPN forwarded port
     volumes:
       - ${APP_DATA_DIR}/data/config:/config
       - ${UMBREL_ROOT}/data/storage/downloads:/downloads

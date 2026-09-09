@@ -69,5 +69,5 @@ widgets:
       items:
         - text: "33% • Ubuntu 22.04.3 amd64 ISO image"
           subtext: "↓4.4Mbps ↑1.2Mbps"
-submitter: ""
-submission: ""
+submitter: jphambleton
+submission: https://github.com/jphambleton/umbrel-vpn-app-store
